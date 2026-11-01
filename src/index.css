@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-cream-100 text-forest-800 font-sans;
+    font-feature-settings: 'ss01';
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tightest;
+    line-height: 1.1;
+  }
+  ::selection {
+    @apply bg-turmeric-500 text-forest-900;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-800 px-6 py-3 text-sm font-semibold text-cream-100 transition-all duration-300 hover:bg-forest-900 hover:shadow-lg hover:shadow-forest-900/20 active:scale-95;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-800/25 bg-transparent px-6 py-3 text-sm font-semibold text-forest-800 transition-all duration-300 hover:border-forest-800 hover:bg-forest-800 hover:text-cream-100 active:scale-95;
+  }
+  .btn-turmeric {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-turmeric-500 px-6 py-3 text-sm font-semibold text-forest-900 transition-all duration-300 hover:bg-turmeric-600 active:scale-95;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.25em] text-turmeric-600;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grain-overlay {
+    background-image: radial-gradient(rgba(23,61,43,0.04) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
+}
